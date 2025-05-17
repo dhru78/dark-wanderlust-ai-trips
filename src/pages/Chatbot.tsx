@@ -120,20 +120,20 @@ const Chatbot = () => {
 
   return (
     <div className="container max-w-4xl animate-fade-in">
-      <h1 className="text-3xl font-bold mb-6">AI Travel Assistant</h1>
+      <h1 className="text-3xl font-bold mb-6 gradient-text">AI Travel Assistant</h1>
       
-      <Card className="border shadow-lg bg-card/50 backdrop-blur-sm">
-        <CardHeader>
+      <Card className="border shadow-lg backdrop-blur-sm gradient-card-dark">
+        <CardHeader className="relative z-10">
           <CardTitle className="text-xl flex items-center">
-            <Bot className="mr-2 h-5 w-5 text-primary" />
-            Chat with TravelAI
+            <Bot className="mr-2 h-5 w-5 text-primary animate-pulse-light" />
+            <span className="gradient-text">Chat with TravelAI</span>
           </CardTitle>
           <p className="text-sm text-muted-foreground">
             Ask about destinations, itineraries, travel tips, and more
           </p>
         </CardHeader>
-        <Separator />
-        <CardContent className="p-0">
+        <Separator className="opacity-30" />
+        <CardContent className="p-0 relative z-10">
           <ScrollArea className="h-[500px] p-4">
             <div className="space-y-4">
               {messages.map((message) => (
@@ -141,14 +141,14 @@ const Chatbot = () => {
                   key={message.id}
                   className={`flex ${
                     message.sender === "user" ? "justify-end" : "justify-start"
-                  }`}
+                  } animate-scale-in`}
                 >
                   <div
                     className={`flex gap-3 max-w-[80%] ${
                       message.sender === "user" ? "flex-row-reverse" : ""
                     }`}
                   >
-                    <Avatar className="h-8 w-8">
+                    <Avatar className={`h-8 w-8 ${message.sender === "bot" ? "glow-effect" : ""}`}>
                       {message.sender === "user" ? (
                         <User className="h-5 w-5" />
                       ) : (
@@ -161,7 +161,7 @@ const Chatbot = () => {
                     <div
                       className={`rounded-lg px-4 py-2 ${
                         message.sender === "user"
-                          ? "bg-primary text-primary-foreground"
+                          ? "bg-gradient-primary text-primary-foreground"
                           : "bg-muted"
                       }`}
                     >
@@ -179,7 +179,7 @@ const Chatbot = () => {
               {isLoading && (
                 <div className="flex justify-start">
                   <div className="flex gap-3 max-w-[80%]">
-                    <Avatar className="h-8 w-8">
+                    <Avatar className="h-8 w-8 glow-effect">
                       <Bot className="h-5 w-5" />
                       <AvatarFallback>AI</AvatarFallback>
                     </Avatar>
@@ -197,7 +197,7 @@ const Chatbot = () => {
             </div>
           </ScrollArea>
 
-          <div className="p-4">
+          <div className="p-4 relative z-10">
             <div className="flex flex-wrap gap-2 mb-3">
               {suggestedQuestions.map((question) => (
                 <Button
@@ -205,7 +205,7 @@ const Chatbot = () => {
                   variant="outline"
                   size="sm"
                   onClick={() => handleSuggestedQuestion(question)}
-                  className="text-xs"
+                  className="text-xs animate-fade-in transition-all duration-300 hover:bg-primary/20"
                 >
                   {question}
                 </Button>
@@ -218,9 +218,13 @@ const Chatbot = () => {
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Type your travel question here..."
                 disabled={isLoading}
-                className="flex-1"
+                className="flex-1 backdrop-blur-sm bg-background/50"
               />
-              <Button type="submit" disabled={isLoading || !input.trim()}>
+              <Button 
+                type="submit" 
+                disabled={isLoading || !input.trim()}
+                className="bg-gradient-primary hover:opacity-90 transition-all duration-300"
+              >
                 <Send className="h-4 w-4" />
                 <span className="sr-only">Send</span>
               </Button>

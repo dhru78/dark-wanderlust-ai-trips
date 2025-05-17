@@ -5,7 +5,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 210 40% 98%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -14,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 221.2 83% 53.3%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -23,7 +23,7 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
+    --accent: 224.3 76.3% 48%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -31,19 +31,19 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 221.2 83% 53.3%;
 
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 0 0% 0%;
     --foreground: 210 40% 98%;
 
-    --card: 222.2 84% 4.9%;
+    --card: 0 0% 3%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222.2 84% 4.9%;
+    --popover: 0 0% 3%;
     --popover-foreground: 210 40% 98%;
 
     --primary: 217.2 91.2% 59.8%; /* Travel blue */
@@ -52,7 +52,7 @@
     --secondary: 217.2 32.6% 20.5%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
+    --muted: 0 0% 10%;
     --muted-foreground: 215 20.2% 65.1%;
 
     --accent: 224.3 76.3% 48%; /* Travel accent */
@@ -61,8 +61,8 @@
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
     --ring: 224.3 76.3% 48%;
   }
 }
@@ -82,7 +82,7 @@
   }
 
   .glass-dark {
-    @apply bg-travel-dark/70 backdrop-blur-lg border border-white/10 shadow-lg;
+    @apply bg-travel-true-black/80 backdrop-blur-lg border border-white/10 shadow-lg;
   }
 
   .animate-enter {
@@ -92,6 +92,34 @@
 
 .card-hover {
   @apply transition-all duration-300 hover:shadow-md hover:bg-primary/5 hover:scale-[1.01];
+}
+
+.gradient-card {
+  @apply relative overflow-hidden border-0;
+  @apply after:absolute after:inset-0 after:bg-gradient-glass after:backdrop-blur-sm after:rounded-lg after:z-0;
+  @apply before:absolute before:inset-0 before:bg-gradient-primary before:opacity-5 before:rounded-lg before:z-0;
+}
+
+.gradient-card-dark {
+  @apply relative overflow-hidden border-0;
+  @apply after:absolute after:inset-0 after:bg-gradient-glass after:backdrop-blur-sm after:rounded-lg after:z-0;
+  @apply before:absolute before:inset-0 before:bg-gradient-dark before:opacity-10 before:rounded-lg before:z-0;
+}
+
+.gradient-text {
+  @apply bg-gradient-primary bg-clip-text text-transparent;
+}
+
+.animated-bg {
+  @apply bg-gradient-primary bg-size-200 animate-gradient-shift;
+}
+
+.floating-element {
+  @apply animate-float;
+}
+
+.glow-effect {
+  @apply animate-glow;
 }
 
 #root {
