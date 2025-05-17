@@ -6,7 +6,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Send, Robot, User } from "lucide-react";
+import { Send, Bot, User } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 // Example pre-defined responses for the AI chatbot
@@ -125,7 +125,7 @@ const Chatbot = () => {
       <Card className="border shadow-lg bg-card/50 backdrop-blur-sm">
         <CardHeader>
           <CardTitle className="text-xl flex items-center">
-            <Robot className="mr-2 h-5 w-5 text-primary" />
+            <Bot className="mr-2 h-5 w-5 text-primary" />
             Chat with TravelAI
           </CardTitle>
           <p className="text-sm text-muted-foreground">
@@ -152,7 +152,7 @@ const Chatbot = () => {
                       {message.sender === "user" ? (
                         <User className="h-5 w-5" />
                       ) : (
-                        <Robot className="h-5 w-5" />
+                        <Bot className="h-5 w-5" />
                       )}
                       <AvatarFallback>
                         {message.sender === "user" ? "U" : "AI"}
@@ -180,7 +180,7 @@ const Chatbot = () => {
                 <div className="flex justify-start">
                   <div className="flex gap-3 max-w-[80%]">
                     <Avatar className="h-8 w-8">
-                      <Robot className="h-5 w-5" />
+                      <Bot className="h-5 w-5" />
                       <AvatarFallback>AI</AvatarFallback>
                     </Avatar>
                     <div className="rounded-lg px-4 py-2 bg-muted">
