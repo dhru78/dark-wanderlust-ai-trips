@@ -90,6 +90,12 @@
   }
 }
 
+@layer utilities {
+  .bg-size-200 {
+    background-size: 200% 200%;
+  }
+}
+
 .card-hover {
   @apply transition-all duration-300 hover:shadow-md hover:bg-primary/5 hover:scale-[1.01];
 }
